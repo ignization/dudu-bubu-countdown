@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root{
+  --bg:#fff6f7; --paper:#fffdfd; --ink:#3f292d; --muted:#8e7075;
+  --rose:#e98f9d; --rose-dark:#c96475; --line:#f0d8dc; --shadow:0 20px 60px rgba(100,48,58,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 10% 0%,#ffe5e9 0,transparent 30%),radial-gradient(circle at 90% 10%,#ffecef 0,transparent 30%),var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;min-height:100vh}
+main{width:min(1060px,92%);margin:auto;padding:38px 0 30px}
+.hero{text-align:center}
+.badge{display:inline-block;padding:9px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.75);font-size:13px;font-weight:700;letter-spacing:2px}
+.badge span{color:var(--rose-dark);margin:0 5px}
+h1,h2{font-family:"Playfair Display",serif}
+h1{font-size:clamp(42px,7vw,78px);line-height:.98;margin:22px 0 10px;letter-spacing:-2px}
+.subtitle{margin:0 0 30px;color:var(--muted);font-size:17px}
+.countdown-card{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:28px 20px;box-shadow:var(--shadow);max-width:850px;margin:auto}
+.eyebrow{font-size:11px;letter-spacing:3px;font-weight:800;color:var(--rose-dark);margin:0 0 10px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:16px auto}
+.countdown div{background:#fff4f5;border-radius:20px;padding:18px 8px}
+.countdown strong{display:block;font-size:clamp(34px,6vw,58px);line-height:1;font-weight:700}
+.countdown span{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:700}
+.date-line{color:var(--muted);font-size:13px;margin:4px 0 0}
+.milestones{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:24px 0 70px}
+.milestone{display:flex;align-items:center;gap:15px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:17px 20px}
+.milestone.special{background:#fff0f2}
+.milestone .icon{font-size:28px}
+.milestone b,.milestone small{display:block}.milestone b{font-size:14px}.milestone small{color:var(--muted);margin-top:3px}
+.section-heading{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.section-heading h2{font-size:30px;margin:0;letter-spacing:-.5px}
+.tiny-heart{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#ffe4e8;color:var(--rose-dark)}
+.letter-card{display:grid;grid-template-columns:minmax(290px, .95fr) 1.05fr;background:var(--paper);border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
+.art-frame{min-height:430px;position:relative;overflow:hidden;background:#f7e3e4}
+.art-frame img{width:100%;height:100%;min-height:430px;object-fit:cover;display:block;transition:transform .5s}
+.letter-card:hover .art-frame img{transform:scale(1.025)}
+.photo-glow{position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,rgba(55,25,30,.15));pointer-events:none}
+.letter-content{padding:42px 42px;display:flex;flex-direction:column;justify-content:center}
+.day-pill{display:inline-flex;width:max-content;padding:7px 11px;background:#ffe6e9;color:var(--rose-dark);border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px}
+.message{font-family:"Playfair Display",serif;font-size:25px;line-height:1.45;margin:20px 0 15px}
+.signature{font-size:13px;color:var(--muted);line-height:1.5}
+.surprise-btn{border:0;background:var(--ink);color:#fff;padding:12px 16px;border-radius:13px;font:600 13px "DM Sans";cursor:pointer;margin-top:16px;width:max-content;transition:.2s}
+.surprise-btn:hover{transform:translateY(-2px);opacity:.9}
+.surprise{display:flex;align-items:center;gap:10px;background:#fff3f4;border:1px dashed #e9b5bd;border-radius:15px;padding:11px 14px;margin-top:12px;color:#73555a;font-size:13px}
+.surprise span{font-size:22px}.surprise p{margin:0}.hidden{display:none!important}
+.calendar-section{margin-top:70px}.section-note{color:var(--muted);margin-top:-5px;margin-bottom:20px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day-btn{min-height:66px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.7);cursor:pointer;color:var(--ink);font:600 13px "DM Sans";position:relative;transition:.18s}
+.day-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(100,48,58,.08)}
+.day-btn .num{font-size:18px;display:block}.day-btn .small{font-size:9px;color:var(--muted);display:block;margin-top:3px}
+.day-btn.locked{opacity:.43;cursor:not-allowed;filter:grayscale(.3)}
+.day-btn.today{background:#ffe5e9;border-color:#e8aab3;box-shadow:0 5px 18px rgba(201,100,117,.13)}
+.day-btn.past{background:#fff}
+.day-btn.special{background:#3f292d;color:white;border-color:#3f292d}
+.day-btn.special .small{color:#f6d9dd}
+.memory-card{margin:70px 0 40px;text-align:center;background:#fff0f2;border:1px solid var(--line);border-radius:30px;padding:45px 25px}
+.memory-art{font-size:50px;margin-bottom:15px}.memory-art span{color:var(--rose-dark);font-size:30px;margin:0 5px}
+.memory-card h2{font-size:32px;margin:8px 0}.memory-card p:not(.eyebrow){max-width:650px;margin:10px auto;color:var(--muted);line-height:1.7}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:15px 0 5px}footer span{color:var(--rose-dark)}footer small{font-size:10px;letter-spacing:1px}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.float-heart{position:absolute;bottom:-30px;animation:float 10s linear forwards;opacity:.2;font-size:18px}
+@keyframes float{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+@media(max-width:720px){
+  main{width:94%;padding-top:22px}.subtitle{font-size:14px}.countdown-card{padding:22px 12px;border-radius:24px}
+  .countdown{gap:6px}.countdown div{padding:14px 4px;border-radius:15px}.countdown strong{font-size:32px}.countdown span{font-size:8px}
+  .milestones{grid-template-columns:1fr;margin-bottom:50px}.letter-card{grid-template-columns:1fr}.art-frame,.art-frame img{min-height:300px;height:300px}
+  .letter-content{padding:28px 23px}.message{font-size:21px}.section-heading h2{font-size:24px}
+  .calendar{grid-template-columns:repeat(5,1fr)}.day-btn{min-height:58px}.day-btn .small{display:none}
+}
+@media(max-width:430px){.calendar{grid-template-columns:repeat(4,1fr)}h1{font-size:46px}.badge{font-size:10px}}

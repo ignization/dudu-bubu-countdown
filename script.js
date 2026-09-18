@@ -133,14 +133,37 @@ $("surpriseBtn").addEventListener("click", () => {
 
 function makeHeart() {
   const h = document.createElement("div");
+
   h.className = "float-heart";
   h.textContent = Math.random() > .5 ? "♥" : "♡";
-  h.style.left = `${Math.random()*100}%`;
-  h.style.animationDuration = `${7 + Math.random()*7}s`;
-  h.style.fontSize = `${12 + Math.random()*14}px`;
+
+  h.style.left = `${Math.random() * 100}%`;
+  h.style.animationDuration = `${7 + Math.random() * 7}s`;
+  h.style.fontSize = `${12 + Math.random() * 18}px`;
+
+  // Random pink shades
+  const pinks = [
+    "#ff69b4",
+    "#ff85c8",
+    "#ff9ed6",
+    "#ffb6e2",
+    "#ff4fa3"
+  ];
+
+  h.style.color = pinks[Math.floor(Math.random() * pinks.length)];
+
   document.querySelector(".hearts").appendChild(h);
+
   setTimeout(() => h.remove(), 15000);
 }
+
+// Create lots of hearts
+for (let i = 0; i < 80; i++) {
+  setTimeout(() => makeHeart(), i * 100);
+}
+
+// Keep creating new hearts
+setInterval(makeHeart, 180);
 
 renderCountdown();
 renderLetter();

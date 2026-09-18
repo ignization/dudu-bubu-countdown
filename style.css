@@ -56,9 +56,127 @@ h1{font-size:clamp(42px,7vw,78px);line-height:.98;margin:22px 0 10px;letter-spac
 .memory-art{font-size:50px;margin-bottom:15px}.memory-art span{color:var(--rose-dark);font-size:30px;margin:0 5px}
 .memory-card h2{font-size:32px;margin:8px 0}.memory-card p:not(.eyebrow){max-width:650px;margin:10px auto;color:var(--muted);line-height:1.7}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:15px 0 5px}footer span{color:var(--rose-dark)}footer small{font-size:10px;letter-spacing:1px}
-.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
-.float-heart{position:absolute;bottom:-30px;animation:float 10s linear forwards;opacity:.2;font-size:18px}
-@keyframes float{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+```css
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.float-heart{
+  position:absolute;
+  bottom:-30px;
+
+  /* Pink heart */
+  color:#ff69b4;
+
+  /* Soft pink outer glow */
+  text-shadow:
+    0 0 4px #ff69b4,
+    0 0 8px #ff69b4,
+    0 0 14px rgba(255,105,180,.75),
+    0 0 25px rgba(255,105,180,.45);
+
+  /* Extra pink glow around the heart */
+  filter:drop-shadow(0 0 5px rgba(255,105,180,.8));
+
+  animation:float 10s linear forwards;
+  opacity:.65;
+  font-size:18px;
+  will-change:transform,opacity;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0) rotate(0deg) scale(.7);
+    opacity:0;
+  }
+
+  10%{
+    opacity:.65;
+  }
+
+  50%{
+    transform:translateY(-55vh) rotate(10deg) scale(1);
+    opacity:.65;
+  }
+
+  100%{
+    transform:translateY(-110vh) rotate(20deg) scale(.8);
+    opacity:0;
+  }
+}
+```
+
+Then use this updated **JavaScript** with it:
+
+```js
+function makeHeart() {
+  const h = document.createElement("div");
+
+  h.className = "float-heart";
+
+  // Different heart styles
+  const heartTypes = ["♥", "♡", "♥", "♡", "♥"];
+  h.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+
+  // Random horizontal position
+  h.style.left = `${Math.random() * 100}%`;
+
+  // Random animation speed
+  h.style.animationDuration = `${7 + Math.random() * 7}s`;
+
+  // Random size
+  h.style.fontSize = `${12 + Math.random() * 18}px`;
+
+  // Different shades of pink
+  const pinks = [
+    "#ff4fa3",
+    "#ff69b4",
+    "#ff85c8",
+    "#ff9ed6",
+    "#ffb6e2"
+  ];
+
+  h.style.color = pinks[Math.floor(Math.random() * pinks.length)];
+
+  document.querySelector(".hearts").appendChild(h);
+
+  // Remove after animation
+  setTimeout(() => h.remove(), 15000);
+}
+
+
+// Create a bunch when the page loads
+for (let i = 0; i < 80; i++) {
+  setTimeout(() => makeHeart(), i * 100);
+}
+
+
+// Continuously create new hearts
+setInterval(makeHeart, 180);
+```
+
+### 💗 What it'll look like
+
+You'll now have:
+
+* **80 hearts** already floating when the page opens
+* A new heart every **0.18 seconds**
+* Multiple shades of pink
+* Bright pink **outer glow**
+* Soft neon-like effect
+* Hearts ranging from small to medium
+* Hearts drifting at different speeds
+* Both filled `♥` and outlined `♡` hearts
+* Hearts fading in and out rather than suddenly appearing
+
+Your existing countdown, calendar, cards, fonts, colors, etc. **don't need to change**.
+
+One thing I intentionally kept is `z-index:-1`, so the hearts stay **behind your website content** rather than covering Dudu & Bubu's countdown. 💕
+
 @media(max-width:720px){
   main{width:94%;padding-top:22px}.subtitle{font-size:14px}.countdown-card{padding:22px 12px;border-radius:24px}
   .countdown{gap:6px}.countdown div{padding:14px 4px;border-radius:15px}.countdown strong{font-size:32px}.countdown span{font-size:8px}
